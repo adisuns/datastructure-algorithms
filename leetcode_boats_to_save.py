@@ -1,7 +1,8 @@
 #leetcode problem 881
+from typing import List
 class Solution:
     
-    def numRescueBoats(self, people,limit):
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
         people.sort()
         left_pointer = 0
         right_pointer = len(people) -1
@@ -20,7 +21,7 @@ class Solution:
             
         return  number_boats
     
-people = [1,3,2]
+people = [1,2]
 limit = 3
 s = Solution()
 boats = s.numRescueBoats(people, limit)
