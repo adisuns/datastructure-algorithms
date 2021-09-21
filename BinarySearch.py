@@ -29,7 +29,7 @@ sanple run
 """
 
 lists = [1,4,2,6,3,7,9,8]
-target = 1
+target = 8
 bs = binarySearch(lists,target) 
     
     
