@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate prime numbers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+          $(document).ready(function () {
+			
+            $('#prime').click(function(){
+                var inputval = $('#inpdigit').val();
+                var server_data = {"n":inputval};
+                var url = '/getprime';
+               $.ajax(
+               {
+                    url: url,
+			        data:  JSON.stringify(server_data) ,
+			        type: 'POST',
+                    contentType:"application/json;charset=UTF-8"
+                 
+               }).done(function(data) {
+
+                    if (data.error) {
+                        $('p').html("")
+                        $('p').append('Error: ' + data.error.message);
+                        $('#inpdigit').val("");
+                    }
+                    else {
+                        $('p').html("")
+                        $('p').append("prime numbers that are smaller than the input number ",inputval," are ",data);
+                        
+                    }
+
+                    });
+            });
+   
+           });
+    </script>
+
+
+    </script>
+</head>
+<body>
+   <input id="inpdigit" type="text" name="numinput" />
+   <button id="prime" type="button" name="getprime">get prime </button>
+   <p></p>
+</body>
+</html>
